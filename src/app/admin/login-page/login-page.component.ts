@@ -3,7 +3,7 @@ import { AuthService } from './../../shared/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { loadavg } from 'os';
+
 
 @Component({
   selector: 'app-login-page',

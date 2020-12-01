@@ -11,8 +11,9 @@ import { Observable } from 'rxjs';
   styleUrls: ['./product-page.component.scss']
 })
 export class ProductPageComponent implements OnInit {
-   product$: Product[] | any=[]
+   product$
   constructor(private productServ: ProductService, private route: ActivatedRoute) {
+    
   }
 
   ngOnInit(): void {

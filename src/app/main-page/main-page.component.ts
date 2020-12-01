@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainPageComponent implements OnInit {
   products$:Observable<any> | undefined 
-  constructor(private productServ: ProductService) { }
+  constructor(public productServ: ProductService) { }
 
   ngOnInit(): void {
     this.products$ = this.productServ.getAll()

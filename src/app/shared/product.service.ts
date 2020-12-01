@@ -36,4 +36,15 @@ export class ProductService {
 
       ))
   }
+  getById(id: string) {
+    return this.http.get(`${environment.fbDbUrl}/products/${id}.json`)
+      .pipe(map((res: Product | any) => {
+        return {
+          ...res,
+          id,
+          date: new Date(res.date)
+        }
+      }
+      ))
+  }
 }

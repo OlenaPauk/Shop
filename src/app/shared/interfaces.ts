@@ -5,6 +5,7 @@ export interface User {
 }
 export interface Product {
     type: string,
+    id:string | number,
     title: string,
     photo: any,
     info: string,

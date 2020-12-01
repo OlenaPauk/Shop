@@ -10,6 +10,9 @@ import { EditPageComponent } from './edit-page/edit-page.component';
 import { OrdersPageComponent } from './orders-page/orders-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { QuillModule } from 'ngx-quill';
+import { SearchPipe } from '../shared/search.pipe';
+
+
 
 
 @NgModule({
@@ -39,6 +42,8 @@ import { QuillModule } from 'ngx-quill';
         DashboardPageComponent,
         EditPageComponent,
         OrdersPageComponent,
+        SearchPipe
+     
     ]
 })
 export class AdminModule {

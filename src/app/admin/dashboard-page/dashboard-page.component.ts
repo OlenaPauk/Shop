@@ -11,7 +11,8 @@ import { Subscribable, Subscription, Observable } from 'rxjs';
 export class DashboardPageComponent implements OnInit {
   products: Product | any  = [] 
   pSub!: Subscription
-  rSub!: Subscription;
+  rSub!: Subscription
+  productName: string=''
   constructor(private productServ: ProductService) { }
 
   ngOnInit(): void {

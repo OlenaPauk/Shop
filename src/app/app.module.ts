@@ -12,6 +12,7 @@ import { QuillModule } from 'ngx-quill';
 import { AuthInterseptor } from './shared/auth.interseptor';
 import { ProductComponent } from './product/product.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { ProductComponent } from './product/product.component';
     MainPageComponent,
     ProductPageComponent,
     CartPageComponent,
-    ProductComponent
+    ProductComponent,
+   
   ],
   imports: [
     BrowserModule,

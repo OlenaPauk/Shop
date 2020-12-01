@@ -1,8 +1,9 @@
-import { User } from './../shared/user';
+
 import { AuthService } from './../../shared/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from 'src/app/shared/interfaces';
 
 
 @Component({

@@ -9,6 +9,7 @@ import { DashboardPageComponent } from './dashboard-page/dashboard-page.componen
 import { EditPageComponent } from './edit-page/edit-page.component';
 import { OrdersPageComponent } from './orders-page/orders-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { QuillModule } from 'ngx-quill';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
+        QuillModule.forRoot(),
         RouterModule.forChild([
             {
                 path: '', component: AdminLayoutComponent, children: [

@@ -6,14 +6,48 @@
                 <td><b>{{i+1}}</b></td>
                 <td>{{cartProduct.type}}</td>
                 <td>{{cartProduct.title}}</td>
-                <td><button class="btn btn-danger">Delete</button></td>
+                <td><button class="btn btn-danger" (click)="delete(cartProduct)">Delete</button></td>
                 <td>{{cartProduct.price}} $</td>
-               
+
             </tr>
         </tbody>
     </table>
     <hr>
     <b class="right">Total:{{totalPrice}} $</b>
+    <h2 class="text-center">Delivery:</h2>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="form-control">
+            <label for="name">Name</label>
+            <input type="name" formControlName="name" id="name">
+            <div *ngIf="form.controls['name'].touched &&form.controls['name'].invalid" class="validation">
+                <small *ngIf="form.controls['name'].errors?.required">Enter your name</small>
+            </div>
+        </div>
+        <div class="form-control">
+            <label for="phone">Phone number</label>
+            <input type="phone" formControlName="phone" id="phone">
+            <div *ngIf="form.controls['phone'].touched &&form.controls['phone'].invalid" class="validation">
+                <small *ngIf="form.controls['phone'].errors?.required">Enter your phone number</small>
+            </div>
+        </div>
+        <div class="form-control">
+            <label for="address">Address</label>
+            <input type="address" formControlName="address" id="address">
+            <div *ngIf="form.controls['address'].touched &&form.controls['address'].invalid" class="validation">
+                <small *ngIf="form.controls['address'].errors?.required">Enter your address</small>
+            </div>
+        </div>
+
+        <div class="form-control">
+            <label for="payment">Payment method:</label>
+            <select formControlName="payment">
+                <option value="Cash">Cash</option>
+                <option value="Card">Card</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" [disabled]="form.invalid || submitted">Add</button>
+    </form>
 </div>
 
 <ng-template #empty>

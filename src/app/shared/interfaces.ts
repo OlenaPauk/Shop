@@ -16,3 +16,12 @@ export interface Product {
 export interface FbResponce {
     name: string
 }
+export interface Orders{
+    name: string,
+    phone: number,
+    address: string,
+    payment: string,
+    orders: any,
+    price: number,
+    date: Date
+}

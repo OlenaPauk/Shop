@@ -1,3 +1,6 @@
+import { OrderService } from './../shared/order.service';
+import { Orders, Product } from './../shared/interfaces';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProductService } from './../shared/product.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,11 +10,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart-page.component.scss']
 })
 export class CartPageComponent implements OnInit {
-  cartProducts:any= []
+  cartProducts: any = []
   totalPrice = 0
+  form: FormGroup;
+  submitted: boolean = false
   constructor(
-    private productServ: ProductService
-  ) { }
+    private productServ: ProductService,
+    private orderServ: OrderService
+  ) {
+    this.form = new FormGroup({
+      name: new FormControl(null, Validators.required),
+      phone: new FormControl(null, Validators.required),
+      address: new FormControl(null, Validators.required),
+      payment: new FormControl('Cash')
+    })
+  }
 
   ngOnInit(): void {
     console.log(this.productServ.cartProducts);
@@ -23,6 +36,32 @@ export class CartPageComponent implements OnInit {
 
     }
 
+  }
+  submit() {
+    if (this.form.invalid) {
+      return
+    }
+    this.submitted = true;
+
+    const order: Orders = {
+      name: this.form.value.name,
+      phone: this.form.value.phone,
+      address: this.form.value.address,
+      payment: this.form.value.payment,
+      orders: this.cartProducts,
+      price: this.totalPrice,
+      date: new Date()
+    }
+    console.log(this.form);
+    this.orderServ.create(order).subscribe(res => {
+      this.form.reset();
+      this.submitted = false;
+    })
+
+  }
+  delete(product: Product) {
+    this.totalPrice -= Number(product.price)
+    this.cartProducts.splice(this.cartProducts.indexOf(product),1)
   }
 
 }

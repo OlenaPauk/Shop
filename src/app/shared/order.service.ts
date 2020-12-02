@@ -22,23 +22,23 @@ export class OrderService {
         })
       )
   }
-  // getAll() {
-  //   return this.http.get(`${environment.fbDbUrl}/products.json`)
-  //     .pipe(map((res: FbResponce | any) => {
-  //       return Object.keys(res)
-  //         .map(key => ({
-  //           ...res[key],
-  //           id: key,
-  //           date: new Date(res[key].date)
-  //         }))
-  //     }
+  getAll() {
+    return this.http.get(`${environment.fbDbUrl}/orders.json`)
+      .pipe(map((res: FbResponce | any) => {
+        return Object.keys(res)
+          .map(key => ({
+            ...res[key],
+            id: key,
+            date: new Date(res[key].date)
+          }))
+      }
 
-  //     ))
-  // }
+      ))
+  }
 
-  // remove(id:string){
-  //   return this.http.delete(`${environment.fbDbUrl}/products/${id}.json`)
-  // }
+  remove(id:string){
+    return this.http.delete(`${environment.fbDbUrl}/orders/${id}.json`)
+  }
 
 
 }

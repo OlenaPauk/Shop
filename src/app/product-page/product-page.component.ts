@@ -26,6 +26,8 @@ export class ProductPageComponent implements OnInit {
     console.log('type: '+ typeof this.product$);
   }
 
-  
+  addProduct(product:Product) {
+    this.productServ.addProduct(product)
+   }
 
 }

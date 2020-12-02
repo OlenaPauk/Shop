@@ -10,6 +10,7 @@ import { FbResponce, Product } from './interfaces';
 })
 export class ProductService {
 type: string = 'Phone'
+cartProducts:  Product[] = []
   constructor(private http: HttpClient) { }
   create(product: Product) {
     return this.http.post(`${environment.fbDbUrl}/products.json`, product)
@@ -55,5 +56,8 @@ type: string = 'Phone'
   }
   setType(type:string){
     this.type = type
+  }
+  addProduct(product:Product){
+    this.cartProducts.push(product)
   }
 }

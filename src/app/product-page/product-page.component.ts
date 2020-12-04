@@ -22,8 +22,6 @@ export class ProductPageComponent implements OnInit {
         return this.productServ.getById(params['id'])
       })
     )
-    console.log(this.product$);
-    console.log('type: '+ typeof this.product$);
   }
 
   addProduct(product:Product) {

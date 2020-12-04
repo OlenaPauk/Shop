@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart-page.component.scss']
 })
 export class CartPageComponent implements OnInit {
-  cartProducts:Product[] = []
+  cartProducts: Product[] = []
   totalPrice = 0
   form: FormGroup;
   submitted: boolean = false
@@ -28,15 +28,10 @@ export class CartPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.productServ.cartProducts);
-
-
     this.cartProducts = this.productServ.cartProducts
     for (let i = 0; i < this.cartProducts.length; i++) {
       this.totalPrice += +this.cartProducts[i].price
-
     }
-
   }
   submit() {
     if (this.form.invalid) {
@@ -53,7 +48,6 @@ export class CartPageComponent implements OnInit {
       price: this.totalPrice,
       date: new Date()
     }
-    console.log(this.form);
     this.orderServ.create(order).subscribe(res => {
       this.form.reset();
       this.added = 'Delivery is framed'
@@ -63,7 +57,7 @@ export class CartPageComponent implements OnInit {
   }
   delete(product: Product) {
     this.totalPrice -= Number(product.price)
-    this.cartProducts.splice(this.cartProducts.indexOf(product),1)
+    this.cartProducts.splice(this.cartProducts.indexOf(product), 1)
   }
 
 }

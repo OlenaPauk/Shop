@@ -11,11 +11,11 @@
                 </div>
                 <div>
                     <h2>Price: {{product.price}} $</h2>
-                    <button class="btn btn-dark" [routerLink]="['/cart']" (click)="addProduct(product)">Add to cart</button>
+                    <button class="btn btn-dark buttonMargin" [routerLink]="['/cart']" (click)="addProduct(product)">Add to cart</button>
                 </div>
             </div>
             <div class="item">
-                <h2>Information:</h2>
+                <h2 class="text-center">Information:</h2>
                 <div>
                     <quill-view-html [content]="product.info"></quill-view-html>
                 </div>

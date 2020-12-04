@@ -1,4 +1,4 @@
-<div *ngIf="!cartProducts.lenght;else empty" class="container">
+<div *ngIf="cartProducts.length;else empty" class="container">
     <h2 class="text-center">Your order</h2>
     <table>
         <tbody>
@@ -47,7 +47,7 @@
                 <option value="Card">Card</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-primary btn-block" [disabled]="form.invalid || submitted">Add</button>
+        <button type="submit" class="btn btn-primary btn-block marginButton" [disabled]="form.invalid || submitted">Add</button>
     </form>
 </div>
 

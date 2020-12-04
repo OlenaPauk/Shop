@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart-page.component.scss']
 })
 export class CartPageComponent implements OnInit {
-  cartProducts: any = []
+  cartProducts:Product[] = []
   totalPrice = 0
   form: FormGroup;
   submitted: boolean = false
